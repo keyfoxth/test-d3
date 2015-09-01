@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+</head>
+<body>
+    <div>Hello</div>
+    <div>World</div>
+
+    <script>
+        /*
+        var body = d3.select("body");
+        var div = body.append("div");
+        div.html("Hello, world!");
+        */
+
+        /*
+        var section = d3.selectAll("div");
+        var div = section.append("div");
+        div.html("Hello, world!");
+        */
+
+        /*
+        d3.select("body")
+          .style("color", "white")
+          .style("background-color", "black");
+        */
+
+        d3.selectAll("div")
+          .attr("class", "special")
+          .append("div")
+          .html("Hello, world!");
+    </script>
+</body>
+</html>

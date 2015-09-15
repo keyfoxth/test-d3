@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="js/d3.min.js" charset="utf-8"></script>
+</head>
+<body>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+
+    <span>4</span>
+    <span>5</span>
+    <span>6</span>
+
+    <script>
+        var str = "test";
+        var data = ["dog","cats","snake"];
+        var p = d3.select("body").selectAll("p");
+        var span = d3.select("body").selectAll("span");
+
+        p.datum(str).text(function(d, i){
+            return "第 " + i + " 个p元素绑定的数据是 " + d;
+        });
+
+        span.data(data).text(function(d, i){
+            return i + ": " + d + "; ";
+        });
+    </script>
+</body>
+</html>

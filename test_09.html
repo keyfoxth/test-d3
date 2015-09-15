@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="js/d3.min.js" charset="utf-8"></script>
+</head>
+<body>
+
+    <script>
+        var height = 1000;
+        var width = 1000;
+
+        var svg = d3.select("body")
+                    .append("svg")
+                    .attr("height", height)
+                    .attr("width", width);
+
+        var circle1 = svg.append("circle")
+                         .attr("cx", 100)
+                         .attr("cy", 100)
+                         .attr("r", 45)
+                         .style("fill", "green");
+        circle1.transition()
+               .duration(2000)
+               .attr("cx", 300);
+
+        var circle2 = svg.append("circle")
+                         .attr("cx", 100)
+                         .attr("cy", 300)
+                         .attr("r", 60)
+                         .style("fill", "blue");
+        circle2.transition()
+               .duration(2000)
+               .delay(2000)
+               .attr("cx", 400)
+               .style("fill", "red");
+
+        var circle3 = svg.append("circle")
+                         .attr("cx", 100)
+                         .attr("cy", 500)
+                         .attr("r", 65)
+                         .style("fill", "yellow");
+        circle3.transition()
+               .duration(2000)
+               .delay(4000)
+               .ease("bounce")
+               .attr("cx", 500)
+               .style("fill", "black")
+               .attr("r", 30);
+    </script>
+</body>
+</html>

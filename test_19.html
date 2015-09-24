@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="js/d3.min.js" charset="utf-8"></script>
+</head>
+<body>
+
+    <script>
+        var height = 1000;
+        var width = 1000;
+
+        var svg = d3.select("body")
+                    .append("svg")
+                    .attr("height", height)
+                    .attr("width", width)
+                    .append("g")
+                    .attr("transform", "translate(0,0)");
+
+        var color = d3.scale.category20();
+
+        var projection = d3.geo.mercator()
+                               .center([107, 31])
+                               .scale(850)
+                               .translate([width/2, height/2]);
+
+        var path = d3.geo.path()
+                         .projection(projection);
+
+        d3.json("json/china.json", function(error, root){
+            if (error)
+                return console.error(error);
+            console.log(root.features);
+
+            svg.selectAll("path")
+               .data(root.features)
+               .enter()
+               .append("path")
+               .attr("stroke", "#000")
+               .attr("stroke-width", 1)
+               .attr("fill", function(d, i){
+                    return color(i);
+               })
+               .attr("d", path)
+               .on("mouseover", function(d, i){
+                    d3.select(this)
+                      .attr("fill", "yellow");
+               })
+               .on("mouseout", function(d, i){
+                    d3.select(this)
+                      .attr("fill" ,color(i));
+               });
+        })
+    </script>
+</body>
+</html>

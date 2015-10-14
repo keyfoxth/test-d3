@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title></title>
-    <script src="js/d3.min.js" charset="utf-8"></script>
+    <script src="../node_modules/d3/d3.min.js" charset="utf-8"></script>
     <style>
         .chord path {
             fill-opacity: 0.67;
@@ -26,7 +26,7 @@
                     .attr("transform", "translate(" + width / 2 + "," + height / 2 +")");
 
         var city_name = [ "北京" , "上海" , "广州" , "深圳" , "香港"  ];
-        
+
         var population = [
           [ 1000,  3045　 , 4567　, 1234 , 3714 ],
           [ 3214,  2000　 , 2060　, 124  , 3234 ],
@@ -104,5 +104,6 @@
                  .style("fill", color(d.source.index));
            });
     </script>
+    <a href="test-16.html">Next</a>
 </body>
 </html>

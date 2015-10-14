@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title></title>
-    <script src="js/d3.min.js" charset="utf-8"></script>
+    <script src="../node_modules/d3/d3.min.js" charset="utf-8"></script>
 </head>
 <body>
 
@@ -22,7 +22,7 @@
                             .size([width, height])
                             .radius(20);
 
-        d3.json("json/test_18.json", function(error, root){
+        d3.json("json/test-18.json", function(error, root){
             var nodes = pack.nodes(root);
             var links = pack.links(nodes);
 
@@ -59,7 +59,7 @@
                .attr("fill-opacity", function(d){
                     if(d.depth == 2)
                         return "0.9";
-                    else 
+                    else
                         return "0";
                })
                .attr("x", function(d){
@@ -75,5 +75,6 @@
                })
         });
     </script>
+    <a href="test-19.html">Next</a>
 </body>
 </html>

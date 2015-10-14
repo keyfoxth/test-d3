@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title></title>
-    <script src="js/d3.min.js" charset="utf-8"></script>
+    <script src="../node_modules/d3/d3.min.js" charset="utf-8"></script>
 </head>
 <body>
 
@@ -16,7 +16,7 @@
                     .attr("height", height)
                     .attr("width", width);
 
-        var nodes = [{ name: "GuiLin"     }, 
+        var nodes = [{ name: "GuiLin"     },
                      { name: "GuangZhou"  },
                      { name: "XiaMen"     },
                      { name: "HangZhou"   },
@@ -29,7 +29,7 @@
                      { name: "WuluMuQi"   },
                      { name: "LaSa"       },
                      { name: "ChengDu"    }];
-                     
+
         var links = [{ source: 0  , target: 1  },
                      { source: 1  , target: 2  },
                      { source: 2  , target: 3  },
@@ -93,5 +93,6 @@
             });
         });
     </script>
+    <a href="test-15.html">Next</a>
 </body>
 </html>

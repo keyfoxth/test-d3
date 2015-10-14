@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title></title>
-    <script src="js/d3.min.js" charset="utf-8"></script>
+    <script src="../node_modules/d3/d3.min.js" charset="utf-8"></script>
     <style>
         .node circle {
           fill: #fff;
@@ -33,20 +33,17 @@
                     .append("g")
                     .attr("transform", "translate(40, 0)");
 
-        var tree = d3.layout.tree()
-                            .size([width, height - 200])
-                            .separation(function(a, b){
-                                return (a.parent == b.parent ? 1 : 2);
-                            });
+        var cluster = d3.layout.cluster()
+                               .size([width, height - 200]);
 
         var diagonal = d3.svg.diagonal()
                              .projection(function(d){
                                  return [d.y, d.x];
                              });
 
-        d3.json("json/test_17.json", function(error, root){
-            var nodes = tree.nodes(root);
-            var links = tree.links(nodes);
+        d3.json("json/test-16.json", function(error, root){
+            var nodes = cluster.nodes(root);
+            var links = cluster.links(nodes);
 
             var link = svg.selectAll(".link")
                       .data(links)
@@ -60,7 +57,7 @@
                           .enter()
                           .append("g")
                           .attr("class", "node")
-                          .attr("transform", function(d){ 
+                          .attr("transform", function(d){
                               return "translate(" + d.y + "," + d.x + ")";
                           });
 
@@ -80,5 +77,6 @@
                 });
         });
     </script>
+    <a href="test-17.html">Next</a>
 </body>
 </html>

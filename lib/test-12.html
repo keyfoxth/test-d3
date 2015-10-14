@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title></title>
-    <script src="js/d3.min.js" charset="utf-8"></script>
+    <script src="../node_modules/d3/d3.min.js" charset="utf-8"></script>
     <style>
         .axis path,
         .axis line{
@@ -17,9 +17,11 @@
             font-size: 11px;
         }
 
+        /*
         .MyRect {
             fill: steelblue;
         }
+        */
 
         .MyText {
             fill: white;
@@ -75,6 +77,17 @@
                        .attr("width", xScale.rangeBand() - rectPadding)
                        .attr("height", function(d){
                            return height - padding.top - padding.bottom - yScale(d);
+                       })
+                       .attr("fill", "steelblue")
+                       .on("mouseover", function(d, i){
+                           d3.select(this)
+                             .attr("fill", "black");
+                       })
+                       .on("mouseout", function(d, i){
+                           d3.select(this)
+                             .transition()
+                             .duration(500)
+                             .attr("fill", "steelblue");
                        });
 
         var texts = svg.selectAll(".MyText")
@@ -109,5 +122,6 @@
            .attr("transform", "translate(" + padding.left + "," + padding.top + ")")
            .call(yAxis);
     </script>
+    <a href="test-13.html">Next</a>
 </body>
 </html>
